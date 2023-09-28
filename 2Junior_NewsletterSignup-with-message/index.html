@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <form action="submit">
+            <h1>Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+            <ul>
+                <li>
+                    <img src="images/icon-list.svg" alt="icon">
+                    <span>Product discovery and building what matters</span>
+                </li>
+                <li>
+                    <img src="images/icon-list.svg" alt="icon">
+                    <span>Measuring to ensure updates are a success</span>
+                </li>
+                <li>
+                    <img src="images/icon-list.svg" alt="icon">
+                    <span>And much more!</span>
+                </li>
+            </ul>
+            <label for="email">Email address</label>
+            <input type="email" name="email" id="email" placeholder="email@company.com">
+            <button type="submit">Subscribe to monthly newsletter</button>
+        </form>
+        <picture>
+            <source srcset="/images/illustration-sign-up-desktop.svg" media="(min-width:601px)">
+            <img loading="lazy" src="/images/illustration-sign-up-mobile.svg">
+        </picture>
+    </main>
+</body>
+
+</html>

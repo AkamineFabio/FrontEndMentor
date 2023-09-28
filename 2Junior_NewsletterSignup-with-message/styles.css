@@ -1,0 +1,68 @@
+:root {
+    --color-tomato: hsl(4, 100%, 67%);
+    --color-charcoal-grey: hsl(235, 18%, 26%);
+    --color-dark-slate-grey: hsl(235, 18%, 26%);
+    --color-grey: hsl(231, 7%, 60%);
+    --color-white: hsl(0, 0%, 100%);
+    --font-Roboto: 'Roboto', sans-serif;
+    --color-soft-shadow: #36363641;
+}
+
+
+body {
+    background-color: var(--color-dark-slate-grey);
+    font-family: var(--font-Roboto);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
+    margin: 4rem auto;
+    background-color: var(--color-white);
+    width: 900px;
+    border-radius: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+form h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-dark-slate-grey);
+}
+
+form p {
+    padding: 1.5rem 0;
+}
+
+form ul li {
+    padding-bottom: .75rem;
+}
+
+form label {
+    padding-top: 1rem;
+}
+
+form input {
+    margin: .5rem 0 1.5rem;
+    padding: .5rem 0;
+    padding-left: .5rem;
+    border-color: rgba(223, 220, 245, 0.329);
+    box-shadow: .25rem .25rem .25rem var(--color-soft-shadow);
+}
+
+form button {
+    border-radius: .25rem;
+    padding: .75rem 0;
+    background-color: var(--color-charcoal-grey);
+    border-color: var(--color-charcoal-grey);
+    color: var(--color-white);
+    font-weight: 700;
+}
