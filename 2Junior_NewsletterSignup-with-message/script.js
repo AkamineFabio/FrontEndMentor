@@ -3,6 +3,11 @@ const msgEmailInvalid = document.querySelector('.email__invalid');
 const msgEmailRequired = document.querySelector('.email__required')
 const form = document.querySelector('form');
 
+const userEmail = document.querySelector('#user__email');
+const dismissButton = document.querySelector('#dismiss__button');
+const cardContainer = document.querySelector('.card__container');
+const mainContainer = document.querySelector('main');
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     emailValidation();
@@ -11,6 +16,12 @@ form.addEventListener('submit', (e) => {
 inputEmail.addEventListener('input', () => {
     inputEmail.style.backgroundColor = '#ffffff';
     inputEmail.style.color = '#000000';
+});
+
+dismissButton.addEventListener('click', () => {
+    mainContainer.style.display = 'flex';
+    cardContainer.style.display = 'none';
+    inputEmail.value = '';
 })
 
 const emailValidation = () => {
@@ -26,9 +37,12 @@ const emailValidation = () => {
         return;
     }
     else {
-        window.location.href = 'success.html';
+        mainContainer.style.display = 'none';
+        cardContainer.style.display = 'flex';
+        userEmail.innerText = inputEmail.value;
     }
 }
+
 
 const isValidEmail = (email) => {
     const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

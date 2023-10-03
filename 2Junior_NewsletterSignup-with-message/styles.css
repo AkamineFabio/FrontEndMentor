@@ -18,7 +18,7 @@ body {
 }
 
 main {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 4rem;
@@ -101,7 +101,7 @@ form button:hover {
 
 .card__container {
     height: 100vh;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -135,7 +135,7 @@ form button:hover {
     font-weight: 700;
 }
 
-.card__success button {
+#dismiss__button {
     width: 100%;
     border-radius: .5rem;
     padding: 1rem 0;
@@ -143,9 +143,10 @@ form button:hover {
     border-color: var(--color-charcoal-grey);
     color: var(--color-white);
     font-weight: 700;
+
 }
 
-.card__success button:hover {
+#dismiss__button:hover {
     background: linear-gradient(to right, rgb(241, 26, 91), rgb(241, 90, 21));
     box-shadow: .15rem .5rem 1rem rgb(241, 90, 21);
     border: none;
@@ -200,15 +201,24 @@ form button:hover {
 
     .card__container {
         height: 100vh;
+        width: 95%;
+        margin: 0 auto;
     }
 
     .card__success {
-        width: 100%;
+        width: 95%;
         height: 100vh;
+        margin: 0 auto;
+        min-width: 0;
     }
 
-    .card__success button {
-        justify-self: flex-end;
-        align-self: flex-end;
+    .card__success h1 {
+        font-size: 2.5rem;
     }
+
+    #dismiss__button {
+        align-self: flex-end;
+        justify-self: flex-end;
+    }
+
 }
