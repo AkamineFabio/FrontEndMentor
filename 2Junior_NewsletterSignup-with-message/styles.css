@@ -14,10 +14,11 @@
 body {
     background-color: var(--color-dark-slate-grey);
     font-family: var(--font-Roboto);
+    height: 100%;
 }
 
 main {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     gap: 4rem;
@@ -78,7 +79,7 @@ form button {
 form button:hover {
     background: linear-gradient(to right, rgb(241, 26, 91), rgb(241, 90, 21));
     box-shadow: .15rem .5rem 1rem rgb(241, 90, 21);
-    border-color: var(--color-transparent);
+    border: none;
     cursor: pointer;
 }
 
@@ -92,4 +93,122 @@ form button:hover {
 
 .hidden {
     display: none;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- */
+/* SUCCESS STYLES */
+
+.card__container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__success {
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+    min-width: 400px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+}
+
+.card__success h1 {
+    font-size: 3rem;
+    color: var(--color-dark-slate-grey);
+    font-weight: 700;
+}
+
+.card__success p {
+    color: var(--color-dark-slate-grey);
+}
+
+#user__email {
+    color: var(--color-dark-slate-grey);
+    font-weight: 700;
+}
+
+.card__success button {
+    width: 100%;
+    border-radius: .5rem;
+    padding: 1rem 0;
+    background: var(--color-charcoal-grey);
+    border-color: var(--color-charcoal-grey);
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.card__success button:hover {
+    background: linear-gradient(to right, rgb(241, 26, 91), rgb(241, 90, 21));
+    box-shadow: .15rem .5rem 1rem rgb(241, 90, 21);
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width:550px) {
+
+    body {
+        background-color: var(--color-white);
+        height: inherit;
+    }
+
+    main {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        gap: 2rem;
+    }
+
+    form {
+        order: 2;
+        width: 85%;
+        margin: 0 auto;
+        padding-left: 0;
+    }
+
+    form h1 {
+        font-size: 2.5rem;
+    }
+
+    form ul li {
+        line-height: 1.25;
+    }
+
+    form ul li span {
+        padding-left: .5rem;
+    }
+
+
+    picture {
+        order: 1;
+    }
+
+    picture img {
+        width: 100%;
+    }
+
+    /* ----------------SUCCESS STYLES -------------------- */
+
+    .card__container {
+        height: 100vh;
+    }
+
+    .card__success {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .card__success button {
+        justify-self: flex-end;
+        align-self: flex-end;
+    }
 }

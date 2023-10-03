@@ -9,7 +9,6 @@ form.addEventListener('submit', (e) => {
 });
 
 inputEmail.addEventListener('input', () => {
-    console.log('AAAA');
     inputEmail.style.backgroundColor = '#ffffff';
     inputEmail.style.color = '#000000';
 })
