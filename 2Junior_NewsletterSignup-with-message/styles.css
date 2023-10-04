@@ -207,8 +207,9 @@ form button:hover {
 
     .card__success {
         width: 95%;
-        height: 100vh;
+        height: 90vh;
         margin: 0 auto;
+        justify-content: center;
         min-width: 0;
     }
 
@@ -217,8 +218,7 @@ form button:hover {
     }
 
     #dismiss__button {
-        align-self: flex-end;
-        justify-self: flex-end;
+        margin-top: auto;
     }
 
 }
