@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Calculator App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,800;1,400;1,800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,18 +16,29 @@
 <body>
     <main>
         <form id="form">
-            <label for="day">day</label>
-            <input type="number" id="day">
-            <label for="month">month</label>
-            <input type="number" id="month">
-            <label for="year">year</label>
-            <input type="number" id="year">
-            <button><img src="images/icon-arrow.svg" alt="arrow pointing down"></button>
+            <div class="form__container">
+                <div class="form__input-container">
+                    <label for="day">day</label>
+                    <input type="number" id="day">
+                </div>
+                <div class="form__input-container">
+                    <label for="month">month</label>
+                    <input type="number" id="month">
+                </div>
+                <div class="form__input-container">
+                    <label for="year">year</label>
+                    <input type="number" id="year">
+                </div>
+            </div>
+            <div class="button-container">
+                <hr>
+                <button type="submit"><img src="images/icon-arrow.svg" alt="arrow pointing down"></button>
+            </div>
         </form>
         <div class="main__text">
-            <h1 id="text__number-year"><span id="number__years">10</span>years</h1>
-            <h1 id="text__number-months"><span id="number__months">10</span>months</h1>
-            <h1 id="text__number-days"><span id="number__days">1990</span>days</h1>
+            <h1 id="text__number-year"><span id="number__years">10</span> years</h1>
+            <h1 id="text__number-months"><span id="number__months">10</span> months</h1>
+            <h1 id="text__number-days"><span id="number__days">1990</span> days</h1>
         </div>
 
     </main>

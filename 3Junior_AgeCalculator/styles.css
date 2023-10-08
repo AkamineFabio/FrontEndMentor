@@ -1,3 +1,113 @@
+:root {
+    --color-purple: hsl(259, 100%, 65%);
+    --color-light-red: hsl(0, 100%, 67%);
+    --color-background: hsl(198, 100%, 91%);
+
+    --color-white: hsl(0, 0%, 100%);
+    --color-off-white: hsl(0, 0%, 94%);
+    --color-light-grey: hsl(0, 0%, 86%);
+    --color-smokey-grey: hsl(0, 1%, 44%);
+    --color-off-black: hsl(0, 0%, 8%);
+    --font-Poppins: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-Poppins);
+    height: 100vh;
+    background-color: var(--color-background);
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 500px;
+    max-width: 900px;
+    background-color: var(--color-white);
+    border-radius: .5rem;
+    border-bottom-right-radius: 3rem;
+    padding: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form__container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+}
+
+.form__input-container {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.form__input-container label {
+    text-transform: uppercase;
+    color: var(--color-smokey-grey);
+    padding-bottom: 1rem;
+}
+
+.form__input-container input {
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-color: var(--color-light-grey);
+    border-style: solid;
+    border-radius: .5rem;
+    font-weight: 800;
+}
+
+.form__input-container input:focus {
+    border-color: var(--color-purple);
+}
+
+.button-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.button-container hr {
+    width: 100%;
+}
+
+.button-container button {
+    border-color: var(--color-purple);
+    background-color: var(--color-purple);
+    border-radius: 50%;
+    border-style: solid;
+    padding: 1rem;
+}
+
+.button-container button:hover {
+    cursor: pointer;
+    border-color: var(--color-off-black);
+    background-color: var(--color-off-black);
+}
+
+.main__text {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-self: flex-start;
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+.main__text h1 span {
+    color: var(--color-purple);
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
