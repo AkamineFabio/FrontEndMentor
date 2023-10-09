@@ -19,15 +19,23 @@
             <div class="form__container">
                 <div class="form__input-container">
                     <label for="day">day</label>
-                    <input type="number" id="day">
+                    <input type="number" id="day" placeholder="DD">
+                    <p class="msg__required">This field is required</p>
+                    <p class="msg__valid">Must be a valid day</p>
+                    <p class="msg__valid">There is no such day in this month</p>
                 </div>
                 <div class="form__input-container">
                     <label for="month">month</label>
-                    <input type="number" id="month">
+                    <input type="number" id="month" placeholder="MM">
+                    <p class="msg__required">This field is required</p>
+                    <p class="msg__valid">Must be a valid month</p>
                 </div>
                 <div class="form__input-container">
                     <label for="year">year</label>
-                    <input type="number" id="year">
+                    <input type="number" id="year" placeholder="YYYY">
+                    <p class="msg__required">This field is required</p>
+                    <p class="msg__valid">Must be a valid year</p>
+                    <p class="msg__valid">Must be in the past</p>
                 </div>
             </div>
             <div class="button-container">
@@ -36,9 +44,9 @@
             </div>
         </form>
         <div class="main__text">
-            <h1 id="text__number-year"><span id="number__years">10</span> years</h1>
-            <h1 id="text__number-months"><span id="number__months">10</span> months</h1>
-            <h1 id="text__number-days"><span id="number__days">1990</span> days</h1>
+            <h1 id="text__number-year"><span id="number__years">--</span> years</h1>
+            <h1 id="text__number-months"><span id="number__months">--</span> months</h1>
+            <h1 id="text__number-days"><span id="number__days">--</span> days</h1>
         </div>
 
     </main>

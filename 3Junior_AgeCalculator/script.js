@@ -3,6 +3,10 @@ const inputMonth = document.querySelector('#month');
 const inputYear = document.querySelector('#year');
 const form = document.querySelector('#form');
 
+const labels = document.querySelectorAll('label');
+const msgRequired = document.querySelectorAll('.msg__required');
+const msgValid = document.querySelectorAll('.msg__valid');
+
 const daysText = document.querySelector('#text__number-days');
 const monthsText = document.querySelector('#text__number-months');
 const yearsText = document.querySelector('#text__number-years');
@@ -20,13 +24,83 @@ let monthsAge = 0; //months user has, not counting years -> to use in text
 let yearsAge = 0; //years user has -> to use in text
 let daysAge = 0; //days user has, not counting years or months -> to use in text
 
+function isValid() {
+    let today = new Date();
+    if (inputDay.value === '' || inputMonth.value === '' || inputYear.value === '') {
+        turnLabelsRed();
+        for (let msgs of msgRequired) {
+            console.log('aaaa');
+            msgs.style.display = 'block';
+        }
+        return false;
+    } else if (inputDay.value <= 0 || inputDay.value >= 32) {
+        turnLabelsNormal();
+        turnOffMsgs();
+        inputDay.style.borderColor = 'var(--color-light-red)';
+        msgValid[0].style.display = 'block';
+        return false;
+    } else if (inputDay.value > monthsdays[inputMonth.value - 1]) {
+        turnLabelsNormal();
+        turnOffMsgs();
+        inputDay.style.borderColor = 'var(--color-light-red)';
+        msgValid[1].style.display = 'block';
+        return false;
+    }
+    else if (inputMonth.value <= 0 || inputMonth.value >= 13) {
+        turnLabelsNormal();
+        turnOffMsgs();
+        inputMonth.style.borderColor = 'var(--color-light-red)';
+        msgValid[2].style.display = 'block';
+        return false;
+    } else if (inputYear.value <= 0) {
+        turnLabelsNormal();
+        turnOffMsgs();
+        inputYear.style.borderColor = 'var(--color-light-red)';
+        msgValid[3].style.display = 'block';
+        return false;
+    } else if (inputYear.value > today.getFullYear()) {
+        turnLabelsNormal();
+        turnOffMsgs();
+        inputYear.style.borderColor = 'var(--color-light-red)';
+        msgValid[4].style.display = 'block';
+        return false;
+    } else return true;
+}
+
+function turnLabelsRed() {
+    for (let label of labels) {
+        label.style.color = 'var(--color-light-red)';
+    }
+}
+
+function turnLabelsNormal() {
+    for (let label of labels) {
+        label.style.color = 'var(--color-smokey-grey)';
+    }
+}
+
+function turnOffMsgs() {
+    for (let msg of msgRequired) {
+        msg.style.display = 'none';
+    }
+    for (let msg of msgValid) {
+        msg.style.display = 'none';
+    }
+}
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let dateToday = new Date();
-    let dateBirthday = new Date(inputYear.value, inputMonth.value - 1, inputDay.value);
-    let userAge = new Date();
+    if (!isValid()) {
+        return;
+    }
+    turnLabelsNormal();
+    turnOffMsgs();
 
-    daysUser = 0;
+    let dateToday = new Date(); //today's date
+    let dateBirthday = new Date(inputYear.value, inputMonth.value - 1, inputDay.value); //birthdate's user
+    let userAge = new Date(); // will get the miliseconds of life user has
+
+    daysUser = 0; //setting everything to 0, in case user reuse the form
     monthsAge = 0;
     yearsAge = 0;
     daysAge = 0;
@@ -61,3 +135,4 @@ form.addEventListener('submit', (e) => {
     monthsNumberText.innerText = monthsAge;
     yearsNumberText.innerText = yearsAge;
 });
+
