@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mult-step Form</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <form class="form" id="form__info">
+            <div class="steps__container">
+                <div class="step">
+                    <div class="step__number-container" id="step__current">
+                        <h2 class="step__number">1</h2>
+                    </div>
+                    <div class="step__text">
+                        <p class="step__text-step">Step 1</p>
+                        <p class="step__text-type">Your info</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number-container">
+                        <h2 class="step__number">2</h2>
+                    </div>
+                    <div class="step__text">
+                        <p class="step__text-step">Step 2</p>
+                        <p class="step__text-type">Select Plan</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number-container">
+                        <h2 class="step__number">3</h2>
+                    </div>
+                    <div class="step__text">
+                        <p class="step__text-step">Step 3</p>
+                        <p class="step__text-type">Add-Ons</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number-container">
+                        <h2 class="step__number">4</h2>
+                    </div>
+                    <div class="step__text">
+                        <p class="step__text-step">Step 4</p>
+                        <p class="step__text-type">Summary</p>
+                    </div>
+                </div>
+            </div>
+            <div class="form__content">
+                <div class="form__content-title-container">
+                    <h1>Personal info</h1>
+                    <p>Please provide your name,email,address, and phone number.</p>
+                </div>
+                <div class="form__content-inputs">
+                    <div class="labels__container">
+                        <label for="name">Name</label><span class="form__info-msg-required">This field is
+                            required</span>
+                    </div>
+                    <input type="text" name="username" id="name" placeholder="e.g. Stephen King">
+                    <div class="labels__container">
+                        <label for="email"></label><span class="form__info-msg-required">This field is required</span>
+                    </div>
+                    <input type="text" name="email" id="email" placeholder="e.g. stephenking@lorem.com">
+                    <div class="labels__container">
+                        <label for="phone">Phone Number</label><span class="form__info-msg-required">This field is
+                            required</span>
+                    </div>
+                    <input type="number" name="phone" id="phone" placeholder="e.g. +1 234 567 890">
+                </div>
+                <button class="form__button">Next Step</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
