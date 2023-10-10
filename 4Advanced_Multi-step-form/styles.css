@@ -12,7 +12,7 @@
     --color-magnolia: hsl(217, 100%, 97%);
     --color-alabaster: hsl(231, 100%, 99%);
     --color-red: hsl(354, 84%, 57%);
-    color: hsl(228, 100%, 84%);
+    --font-Ubuntu: 'Ubuntu', sans-serif;
 }
 
 body {
@@ -21,6 +21,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: var(--color-background);
+    font-family: var(--font-Ubuntu);
 }
 
 .container {
@@ -139,7 +140,8 @@ body {
     font-weight: 700;
 }
 
-.form__info-msg-required {
+.form__info-msg-required,
+.form__info-msg-validation {
     color: var(--color-red);
     font-size: 1.125rem;
     display: none;
@@ -153,4 +155,20 @@ body {
     background-color: var(--color-normal-blue);
     color: var(--color-white);
     border: 1px solid var(--color-normal-blue);
+}
+
+.form__button:hover {
+    background-color: var(--color-hard-blue);
+    cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
