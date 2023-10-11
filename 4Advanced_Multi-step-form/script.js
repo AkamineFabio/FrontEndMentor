@@ -1,9 +1,12 @@
+const formInfo = document.querySelector('#form__info');
 const inputUsername = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
 const inputPhone = document.querySelector('#phone');
-const formInfo = document.querySelector('#form__info');
 const msgsRequiredInfo = document.querySelectorAll('.form__info-msg-required');
 const msgsValidationInfo = document.querySelectorAll('.form__info-msg-validation');
+
+const formPlan = document.querySelector('#form__plan');
+
 
 let userName = '';
 let email = '';
@@ -31,6 +34,8 @@ formInfo.addEventListener('submit', (e) => {
     for (let msg of msgsValidationInfo) {
         msg.style.display = 'none';
     }
+    formInfo.style.display = 'none';
+    formPlan.style.display = 'flex';
     alert('Deu certo!');
 });
 
