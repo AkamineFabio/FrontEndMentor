@@ -1,0 +1,44 @@
+.form__content-inputs {
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+}
+
+.labels__container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: .5rem;
+}
+
+.labels__container label {
+    color: var(--color-hard-blue);
+    font-weight: 400;
+}
+
+.form__content-inputs input {
+    margin-bottom: 1.5rem;
+    padding: .75rem;
+    font-size: 1.25rem;
+    border-radius: .5em;
+    font-weight: 700;
+}
+
+.form__info-msg-required,
+.form__info-msg-validation {
+    color: var(--color-red);
+    font-size: 1.125rem;
+    display: none;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}

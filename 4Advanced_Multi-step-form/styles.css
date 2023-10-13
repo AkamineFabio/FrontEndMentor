@@ -1,4 +1,5 @@
-/* @import url(yourinfo-style.css); */
+@import url(yourinfo-style.css);
+/* @import url(yourplan-style.css); */
 
 :root {
     --color-background: blue;
@@ -101,6 +102,8 @@ body {
 .form__content {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    padding-right: 2.5rem;
 }
 
 .form__content-title-container {
@@ -111,6 +114,7 @@ body {
     font-size: 2.5rem;
     color: var(--color-hard-blue);
     padding-bottom: .5rem;
+    font-weight: 700;
 }
 
 .form__content-title-container p {
@@ -118,62 +122,187 @@ body {
     color: var(--color-grey);
 }
 
-
-.form__content-inputs {
-    padding-top: 2.5rem;
+.buttons__container {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    font-size: 1.25rem;
-}
-
-.labels__container {
-    display: flex;
+    margin-top: auto;
     justify-content: space-between;
-    padding-bottom: .5rem;
-}
-
-.labels__container label {
-    color: var(--color-hard-blue);
-    font-weight: 400;
-}
-
-.form__content-inputs input {
-    margin-bottom: 1.5rem;
-    padding: .75rem;
-    font-size: 1.25rem;
-    border-radius: .5em;
-    font-weight: 700;
-}
-
-.form__info-msg-required,
-.form__info-msg-validation {
-    color: var(--color-red);
-    font-size: 1.125rem;
-    display: none;
+    gap: 4rem;
 }
 
 .form__button {
     align-self: flex-end;
+    font-size: 1.125rem;
     margin-top: auto;
-    padding: .75rem 1.75rem;
+    padding: .75rem 1.5rem;
     border-radius: .5rem;
-    background-color: var(--color-normal-blue);
+    background-color: var(--color-hard-blue);
     color: var(--color-white);
-    border: 1px solid var(--color-normal-blue);
+    border: 1px solid var(--color-hard-blue);
 }
 
 .form__button:hover {
-    background-color: var(--color-hard-blue);
+    background-color: var(--color-normal-blue);
+    border-color: var(--color-normal-blue);
     cursor: pointer;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+/* ---------------------------------------------------------------------- */
+
+
+.form__plans-container {
+    display: flex;
+    gap: 1rem;
+    padding-top: 2rem;
 }
 
-/* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
+.plan__card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-soft-blue);
+    border-radius: .5rem;
+    width: 100%;
+}
+
+.plan__card:hover {
+    cursor: pointer;
+    border-color: var(--color-hard-blue) !important;
+}
+
+.plan__card img {
+    padding-bottom: 3rem;
+}
+
+.plan__card-title {
+    font-size: 1.125rem;
+    color: var(--color-hard-blue);
+    font-weight: 700;
+    padding-bottom: .5rem;
+}
+
+.plan__card-text-month,
+.plan__card-text-year {
+    font-weight: 300;
+    transition: all .3s;
+}
+
+.plan__card-text-bonus {
+    padding-top: .5rem;
+    font-weight: 700;
+    font-size: .9rem;
+    color: var(--color-hard-blue);
+    transition: all .3s;
+}
+
+.plan__card-yearOn {
+    display: none;
+}
+
+.checkbox__label {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.checkbox__label:hover {
+    cursor: pointer;
+}
+
+
+#arcade__check,
+#advanced__check,
+#pro__check {
+    -webkit-appearance: none;
+}
+
+
+.switch__container {
+    align-self: center;
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    /*     width: 60px;
+    height: 34px; */
+    width: 3rem;
+    height: 1.5rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.25rem;
+    width: 1.25rem;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(1.5rem);
+    -ms-transform: translateX(1.5rem);
+    transform: translateX(1.5rem);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+.form__button-back {
+    font-size: 1.125rem;
+    font-weight: 700;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: .75rem 1.75rem;
+    background-color: var(--color-white);
+    color: var(--color-grey);
+    border: none;
+}
+
+.form__button-back:hover {
+    color: var(--color-hard-blue);
+    text-decoration: underline;
+    cursor: pointer;
 }

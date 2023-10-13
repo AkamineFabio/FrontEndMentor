@@ -83,7 +83,7 @@
         <form class="form" id="form__plan">
             <div class="steps__container">
                 <div class="step">
-                    <div class="step__number-container" id="step__current">
+                    <div class="step__number-container">
                         <h2 class="step__number">1</h2>
                     </div>
                     <div class="step__text">
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="step">
-                    <div class="step__number-container">
+                    <div class="step__number-container" id="step__current">
                         <h2 class="step__number">2</h2>
                     </div>
                     <div class="step__text">
@@ -126,29 +126,48 @@
                 </div>
                 <div class="form__plans-container">
                     <div class="plan__card">
-                        <img src="images/icon-arcade.svg" alt="arcade plan icon">
-                        <h3 class="plan__card-title">Arcade</h3>
-                        <p class="plan__card-text-month">$9/mo</p>
-                        <p class="plan__card-text-year">$90/yr</p>
-                        <p class="plan__card-text-bonus">2 months free</p>
+                        <input type="checkbox" id="arcade__check">
+                        <label for="arcade__check" class="checkbox__label">
+                            <img src="images/icon-arcade.svg" alt="arcade plan icon">
+                            <h3 class="plan__card-title">Arcade</h3>
+                            <p class="plan__card-text-month">$9/mo</p>
+                            <p class="plan__card-text-year plan__card-yearOn">$90/yr</p>
+                            <p class="plan__card-text-bonus plan__card-yearOn">2 months free</p>
+                        </label>
                     </div>
                     <div class="plan__card">
-                        <img src="images/icon-advanced.svg" alt="advanced plan icon">
-                        <h3 class="plan__card-title">Advanced</h3>
-                        <p class="plan__card-text-month">$12/mo</p>
-                        <p class="plan__card-text-year">$120/yr</p>
-                        <p class="plan__card-text-bonus">2 months free</p>
+                        <input type="checkbox" id="advanced__check">
+                        <label for="advanced__check" class="checkbox__label">
+                            <img src="images/icon-advanced.svg" alt="advanced plan icon">
+                            <h3 class="plan__card-title">Advanced</h3>
+                            <p class="plan__card-text-month">$12/mo</p>
+                            <p class="plan__card-text-year plan__card-yearOn">$120/yr</p>
+                            <p class="plan__card-text-bonus plan__card-yearOn">2 months free</p>
+                        </label>
                     </div>
                     <div class="plan__card">
-                        <img src="images/icon-pro.svg" alt="pro plan icon">
-                        <h3 class="plan__card-title">Pro</h3>
-                        <p class="plan__card-text-month">$15/mo</p>
-                        <p class="plan__card-text-year">$150/yr</p>
-                        <p class="plan__card-text-bonus">2 months free</p>
+                        <input type="checkbox" id="pro__check">
+                        <label for="pro__check" class="checkbox__label">
+                            <img src="images/icon-pro.svg" alt="pro plan icon">
+                            <h3 class="plan__card-title">Pro</h3>
+                            <p class="plan__card-text-month">$15/mo</p>
+                            <p class="plan__card-text-year plan__card-yearOn">$150/yr</p>
+                            <p class="plan__card-text-bonus plan__card-yearOn">2 months free</p>
+                        </label>
                     </div>
                 </div>
-                <button class="form__button-back">Go Back</button>
-                <button class="form__button" type="submit">Next Step</button>
+                <div class="switch__container">
+                    <span class="switch__text">Monthly</span>
+                    <label class="switch">
+                        <input type="checkbox" id="input__switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="switch__text">Yearly</span>
+                </div>
+                <div class="buttons__container">
+                    <p class="form__button-back" id="btn__backto-info">Go Back</p>
+                    <button class="form__button" type="submit">Next Step</button>
+                </div>
             </div>
         </form>
     </div>

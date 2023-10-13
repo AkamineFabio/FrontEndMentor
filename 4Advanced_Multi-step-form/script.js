@@ -6,12 +6,23 @@ const msgsRequiredInfo = document.querySelectorAll('.form__info-msg-required');
 const msgsValidationInfo = document.querySelectorAll('.form__info-msg-validation');
 
 const formPlan = document.querySelector('#form__plan');
+const inputSwitch = document.querySelector('#input__switch');
+const inputArcade = document.querySelector('#arcade__check');
+const inputAdvanced = document.querySelector('#advanced__check');
+const inputPro = document.querySelector('#pro__check');
+const planCards = document.querySelectorAll('.plan__card');
+
+const planCardsTextMonth = document.querySelectorAll('.plan__card-text-month');
+const planCardsTextYear = document.querySelectorAll('.plan__card-yearOn');
+
+const btnBackToInfo = document.querySelector('#btn__backto-info');
 
 
 let userName = '';
 let email = '';
 let phone = '';
 
+/* --------------------FIRST FORM ----------------------------------- */
 
 formInfo.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -56,8 +67,6 @@ inputPhone.addEventListener('change', () => {
 })
 
 
-
-
 const isValidEmail = (email) => {
     const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return re.test(String(email).toLowerCase()); //verify in the email that you passed on the parameter if it has some of this symbols 
@@ -90,3 +99,79 @@ const isFilledInfo = () => {
     } else
         return true;
 }
+
+
+/* --------------------SECOND FORM ----------------------------------- */
+
+inputArcade.addEventListener('change', () => {
+    console.log('changing');
+    if (inputArcade.checked) {
+        planCards[0].style.borderColor = 'var(--color-hard-blue)';
+        planCards[1].style.borderColor = 'var(--color-soft-blue)';
+        planCards[2].style.borderColor = 'var(--color-soft-blue)';
+        inputAdvanced.checked = false;
+        inputPro.checked = false;
+    }
+    else {
+        planCards[0].style.borderColor = 'var(--color-soft-blue)';
+    }
+});
+
+inputAdvanced.addEventListener('change', () => {
+    if (inputAdvanced.checked) {
+        planCards[0].style.borderColor = 'var(--color-soft-blue)';
+        planCards[1].style.borderColor = 'var(--color-hard-blue)';
+        planCards[2].style.borderColor = 'var(--color-soft-blue)';
+        inputArcade.checked = false;
+        inputPro.checked = false;
+    }
+    else {
+        planCards[1].style.borderColor = 'var(--color-soft-blue)';
+    }
+});
+
+inputPro.addEventListener('change', () => {
+    if (inputPro.checked) {
+        planCards[0].style.borderColor = 'var(--color-soft-blue)';
+        planCards[1].style.borderColor = 'var(--color-soft-blue)';
+        planCards[2].style.borderColor = 'var(--color-hard-blue)';
+        inputArcade.checked = false;
+        inputAdvanced.checked = false;
+    }
+    else {
+        planCards[2].style.borderColor = 'var(--color-soft-blue)';
+    }
+});
+
+inputSwitch.addEventListener('change', () => {
+    if (inputSwitch.checked) {
+        for (let texts of planCardsTextMonth) {
+            texts.style.display = 'none';
+        }
+        for (let text of planCardsTextYear) {
+            text.style.display = 'block'
+        }
+    } else {
+        for (let texts of planCardsTextMonth) {
+            texts.style.display = 'block';
+        }
+        for (let text of planCardsTextYear) {
+            text.style.display = 'none';
+        }
+    }
+});
+
+btnBackToInfo.addEventListener('click', () => {
+    formInfo.style.display = 'flex';
+    formPlan.style.display = 'none';
+});
+
+formPlan.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formInfo.style.display = 'flex';
+    formPlan.style.display = 'none';
+})
+
+
+
+
