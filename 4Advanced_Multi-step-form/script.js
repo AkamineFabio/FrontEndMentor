@@ -1,9 +1,14 @@
+
+/*------------------FIRST FORM ----------------------------------------------  */
+
 const formInfo = document.querySelector('#form__info');
 const inputUsername = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
 const inputPhone = document.querySelector('#phone');
 const msgsRequiredInfo = document.querySelectorAll('.form__info-msg-required');
 const msgsValidationInfo = document.querySelectorAll('.form__info-msg-validation');
+
+/* ------------------SECOND FORM ------------------------------------------- */
 
 const formPlan = document.querySelector('#form__plan');
 const inputSwitch = document.querySelector('#input__switch');
@@ -17,10 +22,22 @@ const planCardsTextYear = document.querySelectorAll('.plan__card-yearOn');
 
 const btnBackToInfo = document.querySelector('#btn__backto-info');
 
+/* ------------------THIRD FORM ------------------------------------------- */
+const inputOnlineService = document.querySelector('#online-service');
+const inputLargerStorage = document.querySelector('#larger-storage');
+const inputCustomProfile = document.querySelector('#customizable-profile');
+const btnBackToPlan = document.querySelector('#btn__backto-plan');
+const formAddOns = document.querySelector('#form__addons');
+
+/* ------------------VARIABLES TO STORE FORM INPUTS VALUES ------------------------------------------- */
 
 let userName = '';
 let email = '';
 let phone = '';
+let plan = '';
+let addOn_Online = null;
+let addOn_Storage = null;
+let addOn_Profile = null;
 
 /* --------------------FIRST FORM ----------------------------------- */
 
@@ -168,9 +185,55 @@ btnBackToInfo.addEventListener('click', () => {
 
 formPlan.addEventListener('submit', (e) => {
     e.preventDefault();
+    formInfo.style.display = 'none';
+    formPlan.style.display = 'none';
+    formAddOns.style.display = 'flex';
+});
+
+
+/* --------------------THIRD FORM ----------------------------------- */
+formAddOns.addEventListener('submit', (e) => {
+    e.preventDefault();
     formInfo.style.display = 'flex';
     formPlan.style.display = 'none';
-})
+    formAddOns.style.display = 'none';
+});
+
+btnBackToPlan.addEventListener('click', () => {
+    formInfo.style.display = 'none';
+    formPlan.style.display = 'flex';
+    formAddOns.style.display = 'none';
+});
+
+inputOnlineService.addEventListener('change', () => {
+    if (inputOnlineService.checked) {
+        inputOnlineService.parentElement.style.borderColor = 'var(--color-hard-blue)';
+        addOn_Online = true;
+    } else {
+        inputOnlineService.parentElement.style.borderColor = 'var(--color-light-grey)';
+        addOn_Online = false;
+    }
+});
+
+inputLargerStorage.addEventListener('change', () => {
+    if (inputLargerStorage.checked) {
+        inputLargerStorage.parentElement.style.borderColor = 'var(--color-hard-blue)';
+        addOn_Storage = true;
+    } else {
+        inputLargerStorage.parentElement.style.borderColor = 'var(--color-light-grey)';
+        addOn_Storage = false;
+    }
+});
+
+inputCustomProfile.addEventListener('change', () => {
+    if (inputCustomProfile.checked) {
+        inputCustomProfile.parentElement.style.borderColor = 'var(--color-hard-blue)';
+        addOn_Profile = true;
+    } else {
+        inputCustomProfile.parentElement.style.borderColor = 'var(--color-light-grey)';
+        addOn_Profile = false;
+    }
+});
 
 
 

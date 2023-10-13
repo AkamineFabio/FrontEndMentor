@@ -170,6 +170,86 @@
                 </div>
             </div>
         </form>
+
+        <form class="form" id="form__addons">
+            <div class="steps__container">
+                <div class="step">
+                    <div class="step__number-container">
+                        <h2 class="step__number">1</h2>
+                    </div>
+                    <div class="step__text">
+                        <p class="step__text-step">Step 1</p>
+                        <p class="step__text-type">Your info</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number-container">
+                        <h2 class="step__number">2</h2>
+                    </div>
+                    <div class="step__text">
+                        <p class="step__text-step">Step 2</p>
+                        <p class="step__text-type">Select Plan</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number-container" id="step__current">
+                        <h2 class="step__number">3</h2>
+                    </div>
+                    <div class="step__text">
+                        <p class="step__text-step">Step 3</p>
+                        <p class="step__text-type">Add-Ons</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number-container">
+                        <h2 class="step__number">4</h2>
+                    </div>
+                    <div class="step__text">
+                        <p class="step__text-step">Step 4</p>
+                        <p class="step__text-type">Summary</p>
+                    </div>
+                </div>
+            </div>
+            <div class="form__content">
+                <div class="form__content-title-container">
+                    <h1>Pick add-ons</h1>
+                    <p>Add-ons help enhance your gaming experience.</p>
+                </div>
+                <div class="form__addons-container">
+                    <label for="online-service" class="addons__card">
+                        <input type="checkbox" id="online-service">
+                        <div>
+                            <h3 class="addons__card-title">Online service</h3>
+                            <p class="addons__card-text">Access to multiplayer games</p>
+                        </div>
+                        <p class="addons__card-price-month">+$1/mo</p>
+                        <p class="addons__card-price-year">+$10/yr</p>
+                    </label>
+                    <label for="larger-storage" class="addons__card">
+                        <input type="checkbox" id="larger-storage">
+                        <div>
+                            <h3 class="addons__card-title">Larger Storage</h3>
+                            <p class="addons__card-text">Extra 1TB of cloud save</p>
+                        </div>
+                        <p class="addons__card-price-month">+$2/mo</p>
+                        <p class="addons__card-price-year">+$20/yr</p>
+                    </label>
+                    <label for="customizable-profile" class="addons__card">
+                        <input type="checkbox" id="customizable-profile">
+                        <div>
+                            <h3 class="addons__card-title">Customizable profile</h3>
+                            <p class="addons__card-text">Custom theme on your profile</p>
+                        </div>
+                        <p class="addons__card-price-month">+$2/mo</p>
+                        <p class="addons__card-price-year">+$20/yr</p>
+                    </label>
+                </div>
+                <div class="buttons__container">
+                    <p class="form__button-back" id="btn__backto-plan">Go Back</p>
+                    <button class="form__button" type="submit">Next Step</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <script src="script.js"></script>

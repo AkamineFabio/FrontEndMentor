@@ -1,5 +1,5 @@
 @import url(yourinfo-style.css);
-/* @import url(yourplan-style.css); */
+@import url(yourplan-style.css);
 
 :root {
     --color-background: blue;
@@ -25,7 +25,8 @@ body {
     font-family: var(--font-Ubuntu);
 }
 
-#form__info {
+#form__info,
+#form__plan {
     display: none;
 }
 
@@ -149,160 +150,54 @@ body {
 
 /* ---------------------------------------------------------------------- */
 
-
-.form__plans-container {
-    display: flex;
-    gap: 1rem;
-    padding-top: 2rem;
-}
-
-.plan__card {
+.form__addons-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--color-soft-blue);
-    border-radius: .5rem;
+    padding-top: 2rem;
+    gap: 1rem;
     width: 100%;
 }
 
-.plan__card:hover {
+.addons__card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    width: 100%;
+    border: 1px solid var(--color-light-grey);
+    border-radius: .5rem;
+    gap: 1rem;
+}
+
+.addons__card:hover {
     cursor: pointer;
     border-color: var(--color-hard-blue) !important;
 }
 
-.plan__card img {
-    padding-bottom: 3rem;
+.addons__card input {
+    transform: scale(1.5);
 }
 
-.plan__card-title {
-    font-size: 1.125rem;
-    color: var(--color-hard-blue);
+.addons__card input:hover {
+    cursor: pointer;
+}
+
+.addons__card-title {
     font-weight: 700;
-    padding-bottom: .5rem;
+    color: var(--color-hard-blue);
 }
 
-.plan__card-text-month,
-.plan__card-text-year {
-    font-weight: 300;
-    transition: all .3s;
-}
-
-.plan__card-text-bonus {
+.addons__card-text {
     padding-top: .5rem;
-    font-weight: 700;
-    font-size: .9rem;
-    color: var(--color-hard-blue);
-    transition: all .3s;
-}
-
-.plan__card-yearOn {
-    display: none;
-}
-
-.checkbox__label {
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-}
-
-.checkbox__label:hover {
-    cursor: pointer;
-}
-
-
-#arcade__check,
-#advanced__check,
-#pro__check {
-    -webkit-appearance: none;
-}
-
-
-.switch__container {
-    align-self: center;
-    padding-top: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    /*     width: 60px;
-    height: 34px; */
-    width: 3rem;
-    height: 1.5rem;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-/* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 1.25rem;
-    width: 1.25rem;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked+.slider {
-    background-color: #2196F3;
-}
-
-input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-    -webkit-transform: translateX(1.5rem);
-    -ms-transform: translateX(1.5rem);
-    transform: translateX(1.5rem);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-
-
-.form__button-back {
-    font-size: 1.125rem;
-    font-weight: 700;
-    align-self: flex-start;
-    margin-top: auto;
-    padding: .75rem 1.75rem;
-    background-color: var(--color-white);
+    font-weight: 400;
     color: var(--color-grey);
-    border: none;
 }
 
-.form__button-back:hover {
-    color: var(--color-hard-blue);
-    text-decoration: underline;
-    cursor: pointer;
+.addons__card-price-month,
+.addons__card-price-year {
+    color: var(--color-normal-blue);
+    margin-left: auto;
+}
+
+.addons__card-price-year {
+    display: none;
 }
