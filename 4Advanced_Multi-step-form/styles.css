@@ -1,5 +1,6 @@
 @import url(yourinfo-style.css);
 @import url(yourplan-style.css);
+@import url(youraddons-style.css);
 
 :root {
     --color-background: blue;
@@ -26,7 +27,8 @@ body {
 }
 
 #form__info,
-#form__plan {
+#form__plan,
+#form__addons {
     display: none;
 }
 
@@ -148,56 +150,83 @@ body {
     cursor: pointer;
 }
 
+#btn__summary {
+    border-color: var(--color-normal-blue);
+    background-color: var(--color-normal-blue);
+}
+
+#btn__summary:hover {
+    border-color: var(--color-soft-blue);
+    background-color: var(--color-soft-blue);
+}
+
 /* ---------------------------------------------------------------------- */
 
-.form__addons-container {
+.form__summary-container {
     display: flex;
     flex-direction: column;
+    gap: 1.25rem;
     padding-top: 2rem;
-    gap: 1rem;
-    width: 100%;
+    width: 95%;
 }
 
-.addons__card {
+.form__summary-plan-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 1rem;
+}
+
+#form__summary-plan-type,
+.form__summary-plan-price {
+    font-size: 1.125rem;
+    color: var(--color-hard-blue);
+    font-weight: 700;
+}
+
+#btn__change-plan {
+    text-decoration: underline;
+    padding-top: .25rem;
+    text-underline-offset: .2rem;
+}
+
+#btn__change-plan:hover {
+    color: var(--color-normal-blue);
+    cursor: pointer;
+}
+
+.form__summary-container hr {
     width: 100%;
-    border: 1px solid var(--color-light-grey);
-    border-radius: .5rem;
+}
+
+.form__summary-addons-container {
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
-.addons__card:hover {
-    cursor: pointer;
-    border-color: var(--color-hard-blue) !important;
+.form__summary-addons {
+    display: flex;
+    justify-content: space-between;
 }
 
-.addons__card input {
-    transform: scale(1.5);
-}
-
-.addons__card input:hover {
-    cursor: pointer;
-}
-
-.addons__card-title {
-    font-weight: 700;
-    color: var(--color-hard-blue);
-}
-
-.addons__card-text {
-    padding-top: .5rem;
-    font-weight: 400;
+.form__summary-addons h3,
+#form__summary-total-text {
     color: var(--color-grey);
 }
 
-.addons__card-price-month,
-.addons__card-price-year {
-    color: var(--color-normal-blue);
-    margin-left: auto;
+.form__summary-addons p {
+    color: var(--color-hard-blue);
+    font-weight: 500;
 }
 
-.addons__card-price-year {
-    display: none;
+.form__summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+#form__summary-total-price {
+    font-size: 1.5rem;
+    color: var(--color-normal-blue);
+    font-weight: 500;
 }

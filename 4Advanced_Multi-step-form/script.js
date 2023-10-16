@@ -1,5 +1,5 @@
 
-/*------------------FIRST FORM ----------------------------------------------  */
+/*------------------INFO FORM ----------------------------------------------  */
 
 const formInfo = document.querySelector('#form__info');
 const inputUsername = document.querySelector('#name');
@@ -8,7 +8,7 @@ const inputPhone = document.querySelector('#phone');
 const msgsRequiredInfo = document.querySelectorAll('.form__info-msg-required');
 const msgsValidationInfo = document.querySelectorAll('.form__info-msg-validation');
 
-/* ------------------SECOND FORM ------------------------------------------- */
+/* ------------------PLAN FORM ------------------------------------------- */
 
 const formPlan = document.querySelector('#form__plan');
 const inputSwitch = document.querySelector('#input__switch');
@@ -22,12 +22,25 @@ const planCardsTextYear = document.querySelectorAll('.plan__card-yearOn');
 
 const btnBackToInfo = document.querySelector('#btn__backto-info');
 
-/* ------------------THIRD FORM ------------------------------------------- */
+/* ------------------ADD ONS FORM ------------------------------------------- */
 const inputOnlineService = document.querySelector('#online-service');
 const inputLargerStorage = document.querySelector('#larger-storage');
 const inputCustomProfile = document.querySelector('#customizable-profile');
 const btnBackToPlan = document.querySelector('#btn__backto-plan');
 const formAddOns = document.querySelector('#form__addons');
+
+/* ------------------SUMMARY FORM ------------------------------------------- */
+const planTypeText = document.querySelector('.form__summary-plan-text h3');
+const btnBackToAddOns = document.querySelector('#btn__backto-addons');
+
+const summaryTextPlanType = document.querySelector('#form__summary-plan-type');
+const summaryTextPlanPrice = document.querySelector('.form__summary-plan-price');
+const summaryAddOnsContainer = document.querySelector('.form__summary-addons-container');
+const summaryTotalText = document.querySelector('#form__summary-total-text');
+const summaryTotalPrice = document.querySelector('#form__summary-total-price');
+
+const formSummary = document.querySelector('#form__summary');
+const btnChangePlan = document.querySelector('#btn__change-plan');
 
 /* ------------------VARIABLES TO STORE FORM INPUTS VALUES ------------------------------------------- */
 
@@ -35,11 +48,12 @@ let userName = '';
 let email = '';
 let phone = '';
 let plan = '';
+let isMonthly = null;
 let addOn_Online = null;
 let addOn_Storage = null;
 let addOn_Profile = null;
 
-/* --------------------FIRST FORM ----------------------------------- */
+/* --------------------INFO FORM CODE ----------------------------------- */
 
 formInfo.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -64,6 +78,8 @@ formInfo.addEventListener('submit', (e) => {
     }
     formInfo.style.display = 'none';
     formPlan.style.display = 'flex';
+    formAddOns.style.display = 'none';
+    formSummary.style.display = 'none';
     alert('Deu certo!');
 });
 
@@ -118,7 +134,7 @@ const isFilledInfo = () => {
 }
 
 
-/* --------------------SECOND FORM ----------------------------------- */
+/* --------------------PLAN FORM CODE ----------------------------------- */
 
 inputArcade.addEventListener('change', () => {
     console.log('changing');
@@ -185,18 +201,46 @@ btnBackToInfo.addEventListener('click', () => {
 
 formPlan.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    if (inputSwitch.checked) {
+        isMonthly = false;
+    } else {
+        if (inputArcade.checked) {
+            summaryTextPlanType.innerText = 'Arcade (yearly)';
+            summaryTextPlanPrice.innerText = '$90/yr';
+        } else if (inputAdvanced.checked) {
+            summaryTextPlanType.innerText = 'Advanced (yearly)';
+            summaryTextPlanPrice.innerText = '$120/yr';
+        } else {
+            summaryTextPlanType.innerText = 'Pro (yearly)';
+            summaryTextPlanPrice.innerText = '$150/yr';
+        }
+    }
+
     formInfo.style.display = 'none';
     formPlan.style.display = 'none';
     formAddOns.style.display = 'flex';
+    formSummary.style.display = 'none';
 });
 
 
-/* --------------------THIRD FORM ----------------------------------- */
+/* --------------------ADD ONS FORM CODE ----------------------------------- */
 formAddOns.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (inputOnlineService.checked) {
+        addOn_Online = true;
+    }
+    if (inputLargerStorage.checked) {
+        addOn_Storage = true;
+    }
+    if (inputCustomProfile.checked) {
+        addOn_Profile = true;
+    }
+
     formInfo.style.display = 'flex';
     formPlan.style.display = 'none';
     formAddOns.style.display = 'none';
+    formSummary.style.display = 'none';
 });
 
 btnBackToPlan.addEventListener('click', () => {
@@ -233,6 +277,19 @@ inputCustomProfile.addEventListener('change', () => {
         inputCustomProfile.parentElement.style.borderColor = 'var(--color-light-grey)';
         addOn_Profile = false;
     }
+});
+
+/* --------------------SUMMARY FORM CODE ----------------------------------- */
+
+formSummary.addEventListener('submit', (e) => {
+    e.preventDefault();
+});
+
+btnChangePlan.addEventListener('click', () => {
+    formInfo.style.display = 'none';
+    formPlan.style.display = 'flex';
+    formAddOns.style.display = 'none';
+    formSummary.style.display = 'none';
 });
 
 

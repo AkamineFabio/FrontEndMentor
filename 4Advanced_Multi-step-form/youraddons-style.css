@@ -1,0 +1,51 @@
+.form__addons-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    gap: 1rem;
+    width: 100%;
+}
+
+.addons__card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    width: 100%;
+    border: 1px solid var(--color-light-grey);
+    border-radius: .5rem;
+    gap: 1rem;
+}
+
+.addons__card:hover {
+    cursor: pointer;
+    border-color: var(--color-hard-blue) !important;
+}
+
+.addons__card input {
+    transform: scale(1.5);
+}
+
+.addons__card input:hover {
+    cursor: pointer;
+}
+
+.addons__card-title {
+    font-weight: 700;
+    color: var(--color-hard-blue);
+}
+
+.addons__card-text {
+    padding-top: .5rem;
+    font-weight: 400;
+    color: var(--color-grey);
+}
+
+.addons__card-price-month,
+.addons__card-price-year {
+    color: var(--color-normal-blue);
+    margin-left: auto;
+}
+
+.addons__card-price-year {
+    display: none;
+}
