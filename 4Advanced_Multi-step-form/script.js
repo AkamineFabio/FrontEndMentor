@@ -212,7 +212,7 @@ formPlan.addEventListener('submit', (e) => {
             summaryTextPlanType.innerText = 'Advanced (monthly)';
             summaryTextPlanPrice.innerText = '$12/mo';
             totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;;
-        } else {
+        } else if (inputPro.checked) {
             summaryTextPlanType.innerText = 'Pro (monthly)';
             summaryTextPlanPrice.innerText = '$15/mo';
             totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;
@@ -226,7 +226,7 @@ formPlan.addEventListener('submit', (e) => {
             summaryTextPlanType.innerText = 'Advanced (yearly)';
             summaryTextPlanPrice.innerText = '$120/yr';
             totalPrice = (arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
-        } else {
+        } else if (inputPro.checked) {
             summaryTextPlanType.innerText = 'Pro (yearly)';
             summaryTextPlanPrice.innerText = '$150/yr';
             totalPrice = (arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
@@ -267,26 +267,39 @@ formAddOns.addEventListener('submit', (e) => {
         } else {
             onlineServicePrice = 10;
         }
-        createAddOn('Online Service', '+$1/mo', '+10/yr', 'onlineService__class');
+        const check = document.querySelector('.onlineService__class');
+        if (!check) {
+            console.log('AAAAAAAAAAAA');
+            createAddOn('Online Service', '+$1/mo', '+10/yr', 'onlineService__class');
+        }
     } else {
         onlineServicePrice = 0;
-        const element = document.querySelector('.onlineService__class');
-        if (element) {
-            element.remove();
+        const elements = document.querySelectorAll('.onlineService__class');
+        if (elements.length >= 1) {
+            for (let a of elements) {
+                a.remove();
+            }
         }
     }
+
     if (inputLargerStorage.checked) {
         if (isMonthly) {
             largerStoragePrice = 2;
         } else {
             largerStoragePrice = 20;
         }
-        createAddOn('Larger Storage', '+$2/mo', '+20/yr', 'largerStorage__class');
+        const check = document.querySelector('.largerStorage__class');
+        if (!check) {
+            console.log('AAAAAAAAAAAA');
+            createAddOn('Larger Storage', '+$2/mo', '+20/yr', 'largerStorage__class');
+        }
     } else {
         largerStoragePrice = 0;
-        const element = document.querySelector('.largerStorage__class');
-        if (element) {
-            element.remove();
+        const elements = document.querySelectorAll('.largerStorage__class');
+        if (elements.length >= 1) {
+            for (let a of elements) {
+                a.remove();
+            }
         }
     }
     if (inputCustomProfile.checked) {
@@ -295,12 +308,18 @@ formAddOns.addEventListener('submit', (e) => {
         } else {
             customizableProfilePrice = 20;
         }
-        createAddOn('Customizable Profile', '+$2/mo', '+20/yr', 'customProfile__class');
+        const check = document.querySelector('.customProfile__class');
+        if (!check) {
+            console.log('AAAAAAAAAAAA');
+            createAddOn('Customizable Profile', '+$2/mo', '+20/yr', 'customProfile__class');
+        }
     } else {
         customizableProfilePrice = 0;
-        const element = document.querySelector('.customProfile__class');
-        if (element) {
-            element.remove();
+        const elements = document.querySelectorAll('.customProfile__class');
+        if (elements.length >= 1) {
+            for (let a of elements) {
+                a.remove();
+            }
         }
     }
 
