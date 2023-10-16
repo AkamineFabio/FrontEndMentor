@@ -43,15 +43,15 @@ const formSummary = document.querySelector('#form__summary');
 const btnChangePlan = document.querySelector('#btn__change-plan');
 
 /* ------------------VARIABLES TO STORE FORM INPUTS VALUES ------------------------------------------- */
-
-let userName = '';
-let email = '';
-let phone = '';
+let arcadePrice = 9;
+let advancedPrice = 12;
+let proPrice = 15;
+let onlineServicePrice = 0;
+let largerStoragePrice = 0;
+let customizableProfilePrice = 0;
 let plan = '';
-let isMonthly = null;
-let addOn_Online = null;
-let addOn_Storage = null;
-let addOn_Profile = null;
+let totalPrice = '';
+let isMonthly = true;
 
 /* --------------------INFO FORM CODE ----------------------------------- */
 
@@ -184,6 +184,7 @@ inputSwitch.addEventListener('change', () => {
         for (let text of planCardsTextYear) {
             text.style.display = 'block'
         }
+        isMonthly = true;
     } else {
         for (let texts of planCardsTextMonth) {
             texts.style.display = 'block';
@@ -191,6 +192,7 @@ inputSwitch.addEventListener('change', () => {
         for (let text of planCardsTextYear) {
             text.style.display = 'none';
         }
+        isMonthly = false;
     }
 });
 
@@ -201,19 +203,33 @@ btnBackToInfo.addEventListener('click', () => {
 
 formPlan.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    if (inputSwitch.checked) {
-        isMonthly = false;
+    if (isMonthly) {
+        if (inputArcade.checked) {
+            summaryTextPlanType.innerText = 'Arcade (monthly)';
+            summaryTextPlanPrice.innerText = '$9/mo';
+            totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;
+        } else if (inputAdvanced.checked) {
+            summaryTextPlanType.innerText = 'Advanced (monthly)';
+            summaryTextPlanPrice.innerText = '$12/mo';
+            totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;;
+        } else {
+            summaryTextPlanType.innerText = 'Pro (monthly)';
+            summaryTextPlanPrice.innerText = '$15/mo';
+            totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;
+        }
     } else {
         if (inputArcade.checked) {
             summaryTextPlanType.innerText = 'Arcade (yearly)';
             summaryTextPlanPrice.innerText = '$90/yr';
+            totalPrice = (arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
         } else if (inputAdvanced.checked) {
             summaryTextPlanType.innerText = 'Advanced (yearly)';
             summaryTextPlanPrice.innerText = '$120/yr';
+            totalPrice = (arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
         } else {
             summaryTextPlanType.innerText = 'Pro (yearly)';
             summaryTextPlanPrice.innerText = '$150/yr';
+            totalPrice = (arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
         }
     }
 
@@ -225,57 +241,104 @@ formPlan.addEventListener('submit', (e) => {
 
 
 /* --------------------ADD ONS FORM CODE ----------------------------------- */
+
+const createAddOn = (textH3, priceMonth, priceYear, className) => {
+    const newBlock = document.createElement('DIV');
+    const newH3 = document.createElement('H3');
+    newH3.innerText = textH3;
+    const newP = document.createElement('P');
+    if (isMonthly) {
+        newP.innerText = priceMonth;
+    } else {
+        newP.innerText = priceYear;
+    }
+    summaryAddOnsContainer.appendChild(newBlock);
+    newBlock.classList.add('form__summary-addons');
+    newBlock.classList.add(className);
+    newBlock.appendChild(newH3);
+    newBlock.appendChild(newP);
+}
+
 formAddOns.addEventListener('submit', (e) => {
     e.preventDefault();
     if (inputOnlineService.checked) {
-        addOn_Online = true;
+        if (isMonthly) {
+            onlineServicePrice = 1;
+        } else {
+            onlineServicePrice = 10;
+        }
+        createAddOn('Online Service', '+$1/mo', '+10/yr', 'onlineService__class');
+    } else {
+        onlineServicePrice = 0;
+        const element = document.querySelector('.onlineService__class');
+        if (element) {
+            element.remove();
+        }
     }
     if (inputLargerStorage.checked) {
-        addOn_Storage = true;
+        if (isMonthly) {
+            largerStoragePrice = 2;
+        } else {
+            largerStoragePrice = 20;
+        }
+        createAddOn('Larger Storage', '+$2/mo', '+20/yr', 'largerStorage__class');
+    } else {
+        largerStoragePrice = 0;
+        const element = document.querySelector('.largerStorage__class');
+        if (element) {
+            element.remove();
+        }
     }
     if (inputCustomProfile.checked) {
-        addOn_Profile = true;
+        if (isMonthly) {
+            customizableProfilePrice = 2;
+        } else {
+            customizableProfilePrice = 20;
+        }
+        createAddOn('Customizable Profile', '+$2/mo', '+20/yr', 'customProfile__class');
+    } else {
+        customizableProfilePrice = 0;
+        const element = document.querySelector('.customProfile__class');
+        if (element) {
+            element.remove();
+        }
     }
 
-    formInfo.style.display = 'flex';
+
+    formInfo.style.display = 'none';
     formPlan.style.display = 'none';
     formAddOns.style.display = 'none';
-    formSummary.style.display = 'none';
+    formSummary.style.display = 'flex';
 });
 
 btnBackToPlan.addEventListener('click', () => {
     formInfo.style.display = 'none';
     formPlan.style.display = 'flex';
     formAddOns.style.display = 'none';
+    formSummary.style.display = 'none';
 });
 
 inputOnlineService.addEventListener('change', () => {
     if (inputOnlineService.checked) {
         inputOnlineService.parentElement.style.borderColor = 'var(--color-hard-blue)';
-        addOn_Online = true;
     } else {
         inputOnlineService.parentElement.style.borderColor = 'var(--color-light-grey)';
-        addOn_Online = false;
     }
 });
 
 inputLargerStorage.addEventListener('change', () => {
     if (inputLargerStorage.checked) {
         inputLargerStorage.parentElement.style.borderColor = 'var(--color-hard-blue)';
-        addOn_Storage = true;
     } else {
         inputLargerStorage.parentElement.style.borderColor = 'var(--color-light-grey)';
-        addOn_Storage = false;
     }
 });
 
 inputCustomProfile.addEventListener('change', () => {
     if (inputCustomProfile.checked) {
         inputCustomProfile.parentElement.style.borderColor = 'var(--color-hard-blue)';
-        addOn_Profile = true;
     } else {
         inputCustomProfile.parentElement.style.borderColor = 'var(--color-light-grey)';
-        addOn_Profile = false;
     }
 });
 
@@ -283,6 +346,7 @@ inputCustomProfile.addEventListener('change', () => {
 
 formSummary.addEventListener('submit', (e) => {
     e.preventDefault();
+    alert('Seus dados foram enviados com sucesso!');
 });
 
 btnChangePlan.addEventListener('click', () => {
@@ -291,6 +355,13 @@ btnChangePlan.addEventListener('click', () => {
     formAddOns.style.display = 'none';
     formSummary.style.display = 'none';
 });
+
+btnBackToAddOns.addEventListener('click', () => {
+    formInfo.style.display = 'none';
+    formPlan.style.display = 'none';
+    formAddOns.style.display = 'flex';
+    formSummary.style.display = 'none';
+})
 
 
 
