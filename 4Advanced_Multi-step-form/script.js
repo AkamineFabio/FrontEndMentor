@@ -203,7 +203,7 @@ btnBackToInfo.addEventListener('click', () => {
 
 formPlan.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (isMonthly) {
+    if (!inputSwitch.checked) {
         if (inputArcade.checked) {
             summaryTextPlanType.innerText = 'Arcade (monthly)';
             summaryTextPlanPrice.innerText = '$9/mo';
@@ -218,6 +218,7 @@ formPlan.addEventListener('submit', (e) => {
             totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;
         }
     } else {
+        console.log('por mes');
         if (inputArcade.checked) {
             summaryTextPlanType.innerText = 'Arcade (yearly)';
             summaryTextPlanPrice.innerText = '$90/yr';
@@ -247,7 +248,7 @@ const createAddOn = (textH3, priceMonth, priceYear, className) => {
     const newH3 = document.createElement('H3');
     newH3.innerText = textH3;
     const newP = document.createElement('P');
-    if (isMonthly) {
+    if (!inputSwitch.checked) {
         newP.innerText = priceMonth;
     } else {
         newP.innerText = priceYear;
@@ -262,7 +263,7 @@ const createAddOn = (textH3, priceMonth, priceYear, className) => {
 formAddOns.addEventListener('submit', (e) => {
     e.preventDefault();
     if (inputOnlineService.checked) {
-        if (isMonthly) {
+        if (!inputSwitch.checked) {
             onlineServicePrice = 1;
         } else {
             onlineServicePrice = 10;
@@ -283,7 +284,7 @@ formAddOns.addEventListener('submit', (e) => {
     }
 
     if (inputLargerStorage.checked) {
-        if (isMonthly) {
+        if (!inputSwitch.checked) {
             largerStoragePrice = 2;
         } else {
             largerStoragePrice = 20;
@@ -303,7 +304,7 @@ formAddOns.addEventListener('submit', (e) => {
         }
     }
     if (inputCustomProfile.checked) {
-        if (isMonthly) {
+        if (!inputSwitch.checked) {
             customizableProfilePrice = 2;
         } else {
             customizableProfilePrice = 20;
