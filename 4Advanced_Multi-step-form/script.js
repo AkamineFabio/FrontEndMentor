@@ -133,6 +133,31 @@ const isFilledInfo = () => {
         return true;
 }
 
+const adjustPrice = () => {
+    if (!inputSwitch.checked) {
+        if (inputArcade.checked) {
+            totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;
+        } else if (inputAdvanced.checked) {
+            totalPrice = advancedPrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;
+        } else if (inputPro.checked) {
+            totalPrice = proPrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;
+        }
+        summaryTotalText.innerText = 'Total (per month)';
+        summaryTotalPrice.innerText = '+$' + `${totalPrice}/mo`;
+
+    } else {
+        if (inputArcade.checked) {
+            totalPrice = (arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
+        } else if (inputAdvanced.checked) {
+            totalPrice = (advancedPrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
+        } else if (inputPro.checked) {
+            totalPrice = (proPrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
+        }
+        summaryTotalText.innerText = 'Total (per year)';
+        summaryTotalPrice.innerText = '+$' + `${totalPrice}/yr`;
+    }
+}
+
 
 /* --------------------PLAN FORM CODE ----------------------------------- */
 
@@ -207,32 +232,33 @@ formPlan.addEventListener('submit', (e) => {
         if (inputArcade.checked) {
             summaryTextPlanType.innerText = 'Arcade (monthly)';
             summaryTextPlanPrice.innerText = '$9/mo';
-            totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;
         } else if (inputAdvanced.checked) {
             summaryTextPlanType.innerText = 'Advanced (monthly)';
             summaryTextPlanPrice.innerText = '$12/mo';
-            totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;;
+
         } else if (inputPro.checked) {
             summaryTextPlanType.innerText = 'Pro (monthly)';
             summaryTextPlanPrice.innerText = '$15/mo';
-            totalPrice = arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice;
         }
+        summaryTotalText.innerText = 'Total (per month)';
+        summaryTotalPrice.innerText = '+$' + `${totalPrice}/mo`;
     } else {
-        console.log('por mes');
+        console.log('por ano');
         if (inputArcade.checked) {
             summaryTextPlanType.innerText = 'Arcade (yearly)';
             summaryTextPlanPrice.innerText = '$90/yr';
-            totalPrice = (arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
         } else if (inputAdvanced.checked) {
             summaryTextPlanType.innerText = 'Advanced (yearly)';
             summaryTextPlanPrice.innerText = '$120/yr';
-            totalPrice = (arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
         } else if (inputPro.checked) {
             summaryTextPlanType.innerText = 'Pro (yearly)';
             summaryTextPlanPrice.innerText = '$150/yr';
-            totalPrice = (arcadePrice + onlineServicePrice + largerStoragePrice + customizableProfilePrice) * 10;
         }
+        summaryTotalText.innerText = 'Total (per year)';
+        summaryTotalPrice.innerText = '+$' + `${totalPrice}/yr`;
     }
+
+    adjustPrice();
 
     formInfo.style.display = 'none';
     formPlan.style.display = 'none';
@@ -263,15 +289,11 @@ const createAddOn = (textH3, priceMonth, priceYear, className) => {
 formAddOns.addEventListener('submit', (e) => {
     e.preventDefault();
     if (inputOnlineService.checked) {
-        if (!inputSwitch.checked) {
-            onlineServicePrice = 1;
-        } else {
-            onlineServicePrice = 10;
-        }
-        const check = document.querySelector('.onlineService__class');
-        if (!check) {
-            console.log('AAAAAAAAAAAA');
-            createAddOn('Online Service', '+$1/mo', '+10/yr', 'onlineService__class');
+        onlineServicePrice = 1;
+        createAddOn('Online Service', '+$1/mo', '+10/yr', 'onlineService__class');
+        const check = document.querySelectorAll('.onlineService__class');
+        if (check.length >= 2) {
+            check[0].remove();
         }
     } else {
         onlineServicePrice = 0;
@@ -284,15 +306,11 @@ formAddOns.addEventListener('submit', (e) => {
     }
 
     if (inputLargerStorage.checked) {
-        if (!inputSwitch.checked) {
-            largerStoragePrice = 2;
-        } else {
-            largerStoragePrice = 20;
-        }
-        const check = document.querySelector('.largerStorage__class');
-        if (!check) {
-            console.log('AAAAAAAAAAAA');
-            createAddOn('Larger Storage', '+$2/mo', '+20/yr', 'largerStorage__class');
+        largerStoragePrice = 2;
+        createAddOn('Larger Storage', '+$2/mo', '+20/yr', 'largerStorage__class');
+        const check = document.querySelectorAll('.largerStorage__class');
+        if (check.length >= 2) {
+            check[0].remove();
         }
     } else {
         largerStoragePrice = 0;
@@ -304,15 +322,11 @@ formAddOns.addEventListener('submit', (e) => {
         }
     }
     if (inputCustomProfile.checked) {
-        if (!inputSwitch.checked) {
-            customizableProfilePrice = 2;
-        } else {
-            customizableProfilePrice = 20;
-        }
-        const check = document.querySelector('.customProfile__class');
-        if (!check) {
-            console.log('AAAAAAAAAAAA');
-            createAddOn('Customizable Profile', '+$2/mo', '+20/yr', 'customProfile__class');
+        customizableProfilePrice = 2;
+        createAddOn('Customizable Profile', '+$2/mo', '+20/yr', 'customProfile__class');
+        const check = document.querySelectorAll('.customProfile__class');
+        if (check.length >= 2) {
+            check[0].remove();
         }
     } else {
         customizableProfilePrice = 0;
@@ -323,7 +337,7 @@ formAddOns.addEventListener('submit', (e) => {
             }
         }
     }
-
+    adjustPrice();
 
     formInfo.style.display = 'none';
     formPlan.style.display = 'none';
