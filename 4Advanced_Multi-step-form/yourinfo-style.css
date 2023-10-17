@@ -42,3 +42,10 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+@media(max-width:800px) {
+    .form__content-inputs {
+        width: 100%;
+    }
+
+}

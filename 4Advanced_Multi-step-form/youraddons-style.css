@@ -49,3 +49,9 @@
 .addons__card-price-year {
     display: none;
 }
+
+@media(max-width:800px) {
+    .form__addons-container {
+        padding-bottom: 2rem;
+    }
+}
