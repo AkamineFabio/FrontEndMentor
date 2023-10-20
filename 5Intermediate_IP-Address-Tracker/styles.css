@@ -106,6 +106,7 @@ body {
     z-index: 1;
 }
 
+
 @media(max-width:1100px) {
     .IP__info {
         min-width: 0;

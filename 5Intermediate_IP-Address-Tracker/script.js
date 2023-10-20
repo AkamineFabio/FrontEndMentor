@@ -8,6 +8,7 @@ const infoTimezone = document.querySelector('#IP__info-timezone');
 const infoProvider = document.querySelector('#IP__info-provider');
 
 let requestInfo = '';
+
 /* meu IP 201.81.8.209 */
 
 /* let map = L.map('map').setView([51.505, -0.09], 13);
@@ -21,9 +22,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 form.addEventListener('submit', async function (e) {
     e.preventDefault();
     try {
-        if (!input.value === '') {
+        if (input.value !== '') {
             if (input.value.match(/[a-zA-Z]/g)) {
-                console.log('The string contains letter(s).');
+                alert('The string contains letter(s).');
                 return;
             }
         }
@@ -34,7 +35,7 @@ form.addEventListener('submit', async function (e) {
         generateMap(requestInfo.location.lat, requestInfo.location.lng);
     }
     catch (e) {
-
+        alert(e);
     }
 });
 
@@ -49,8 +50,8 @@ const showInfo = (param) => {
 const generateMap = (lat, long) => {
     console.log(lat);
     console.log(long);
-    map = L.map('map').setView([lat, long], 13);
-    marker = L.marker([lat, long]).addTo(map);
+    let map = L.map('map').setView([lat, long], 13);
+    let marker = L.marker([lat, long]).addTo(map);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
