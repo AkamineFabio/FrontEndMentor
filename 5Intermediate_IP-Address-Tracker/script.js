@@ -10,13 +10,13 @@ const infoProvider = document.querySelector('#IP__info-provider');
 let requestInfo = '';
 /* meu IP 201.81.8.209 */
 
-let map = L.map('map').setView([51.505, -0.09], 13);
+/* let map = L.map('map').setView([51.505, -0.09], 13);
 let marker = L.marker([51.5, -0.09]).addTo(map);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+}).addTo(map); */
 
 form.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -28,8 +28,7 @@ form.addEventListener('submit', async function (e) {
             }
         }
         const config = { params: { q: input.value } };
-        const res = await axios.get('https://geo.ipify.org/api/v2/country?apiKey=at_Ucox1g5s2EBf6UgQdqBdUxfjMDbam&ipAddress=', config);
-        console.log(res.data);
+        const res = await axios.get('https://geo.ipify.org/api/v2/country,city?apiKey=at_Ucox1g5s2EBf6UgQdqBdUxfjMDbam&ipAddress=', config);
         requestInfo = res.data;
         showInfo(requestInfo);
         generateMap(requestInfo.location.lat, requestInfo.location.lng);
@@ -48,8 +47,10 @@ const showInfo = (param) => {
 }
 
 const generateMap = (lat, long) => {
-    let map = L.map('map').setView([lat, long], 13);
-    let marker = L.marker([lat, long]).addTo(map);
+    console.log(lat);
+    console.log(long);
+    map = L.map('map').setView([lat, long], 13);
+    marker = L.marker([lat, long]).addTo(map);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
