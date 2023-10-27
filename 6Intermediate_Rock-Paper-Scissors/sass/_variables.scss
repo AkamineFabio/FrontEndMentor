@@ -1,11 +1,19 @@
-$Scissors_Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
-$Paper_Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
-$Rock_Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
-$Lizard_Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
-$Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+$Scissors_Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+$Paper_Gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+$Rock_Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+$Lizard_Gradient: hsl(261, 73%, 60%), hsl(261, 72%, 63%);
+$Cyan: hsl(189, 59%, 53%), hsl(189, 58%, 57%);
+
+$Paper_Shadow: hsl(230, 72%, 50%);
+$Scissors_Shadow: hsl(39, 75%, 43%);
+$Rock_Shadow: hsl(349, 73%, 45%);
+$Background__Color: hsl(214, 47%, 23%);
 
 $Dark_Text: hsl(229, 25%, 31%);
 $Score_Text: hsl(229, 64%, 46%);
 $Header_Outline: hsl(217, 16%, 45%);
 
-$Radial_Gradient: hsl(214, 47%, 23%) to hsl(237, 49%, 15%);
+$White: hsl(0, 12%, 93%);
+
+$Radial_Gradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+$font-Barlow: 'Barlow', sans-serif;

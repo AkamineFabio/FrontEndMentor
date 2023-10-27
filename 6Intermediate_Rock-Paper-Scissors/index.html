@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <title>Rock Paper Scissors</title>
 </head>
@@ -12,33 +15,80 @@
 <body>
     <main class="container">
         <div class="content">
-            <div class="text__container">
+            <header class="text__container">
                 <div class="text__titles">
                     <img src="images/logo.svg" alt="logo written rock paper scissors">
                 </div>
                 <div class="text__score">
                     <p>Score</p>
-                    <h2 id="score">12</h2>
+                    <h2 id="score">0</h2>
                 </div>
-            </div>
+            </header>
             <div class="options__container">
                 <div class="option" id="option__paper">
-                    <img src="images/icon-paper.svg" alt="paper icon">
-                </div>
-                <div class="option" id="option__scissor">
-                    <img src="images/icon-scissors.svg" alt="scissor icon">
+                    <div class="img__container">
+                        <img src="images/icon-paper.svg" alt="paper icon">
+                    </div>
                 </div>
                 <div class="option" id="option__rock">
-                    <img src="images/icon-rock.svg" alt="rock icon">
+                    <div class="img__container">
+                        <img src="images/icon-rock.svg" alt="rock icon">
+                    </div>
+                </div>
+                <div class="option" id="option__scissor">
+                    <div class="img__container">
+                        <img src="images/icon-scissors.svg" alt="scissor icon">
+                    </div>
                 </div>
             </div>
             <div class="game__container">
-
+                <div class="you__container">
+                    <h3 class="game__title">You picked</h3>
+                    <div class="your__pick" id="your__paper">
+                        <div class="img__container">
+                            <img src="images/icon-paper.svg" alt="paper icon">
+                        </div>
+                    </div>
+                    <div class="your__pick" id="your__scissor">
+                        <div class="img__container">
+                            <img src="images/icon-scissors.svg" alt="scissor icon">
+                        </div>
+                    </div>
+                    <div class="your__pick" id="your__rock">
+                        <div class="img__container">
+                            <img src="images/icon-rock.svg" alt="rock icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="result__container">
+                    <h3 id="result__text"></h3>
+                    <button id="btn__reset">Play again</button>
+                </div>
+                <div class="bot__container">
+                    <h3 class="game__title">The house picked</h3>
+                    <div class="bot__shadow" id="bot__shadow"></div>
+                    <div class="bot__pick" id="bot__paper">
+                        <div class="img__container">
+                            <img src="images/icon-paper.svg" alt="paper icon">
+                        </div>
+                    </div>
+                    <div class="bot__pick" id="bot__scissor">
+                        <div class="img__container">
+                            <img src="images/icon-scissors.svg" alt="scissor icon">
+                        </div>
+                    </div>
+                    <div class="bot__pick" id="bot__rock">
+                        <div class="img__container">
+                            <img src="images/icon-rock.svg" alt="rock icon">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <button id="btn__rules">Rules</button>
     </main>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 
 body {
     background: linear-gradient(v.$Radial_Gradient);
+    font-family: v.$font-Barlow;
 }
 
 .container {
@@ -11,7 +12,7 @@ body {
     padding: 2.5rem;
     width: 100%;
     height: 100vh;
-    background-color: red;
+    background: linear-gradient(v.$Radial_Gradient);
 }
 
 .content {
@@ -24,7 +25,9 @@ body {
     .text__container {
         display: flex;
         justify-content: space-between;
-        background-color: aqua;
+        align-items: center;
+        background: transparent;
+        border: 3px solid v.$Header_Outline;
         width: 100%;
         max-width: 800px;
         padding: 1rem;
@@ -35,15 +38,35 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 1rem 2rem;
-        background-color: antiquewhite;
+        padding: 1.25rem 3rem;
+        background-color: v.$White;
         gap: .5rem;
-        aspect-ratio: 1 / 1;
         border-radius: .5rem;
 
-        #score {
-            font-size: 2.5rem;
+        p {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            color: v.$Score_Text;
         }
+
+        #score {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: v.$Dark_Text;
+        }
+    }
+}
+
+.img__container {
+    background-color: v.$White;
+    border-radius: 50%;
+    padding: 3.5rem;
+    box-shadow: inset 0em .5em darken(v.$White, 15%);
+    text-align: center;
+
+    img {
+        scale: 1.5;
     }
 }
 
@@ -61,29 +84,150 @@ body {
 
     .option {
         position: absolute;
-        background-color: brown;
+        background-color: black;
         border-radius: 50%;
-        padding: 3rem;
-        border: 1.5rem solid rebeccapurple;
+        padding: 1.5rem;
     }
 
     #option__paper {
         top: 25%;
         left: 15%;
+        background: linear-gradient(v.$Paper_Gradient);
+        box-shadow: inset 0em -.5em v.$Paper_Shadow;
     }
 
     #option__rock {
-        top: 25%;
-        right: 15%;
+        top: 60%;
+        background: linear-gradient(to bottom, v.$Rock_Gradient);
+        box-shadow: inset 0em -.5em v.$Rock_Shadow;
     }
 
     #option__scissor {
-        top: 60%;
+        top: 25%;
+        right: 15%;
+        background: linear-gradient(to bottom, v.$Scissors_Gradient);
+        box-shadow: inset 0em -.5em v.$Scissors_Shadow;
     }
+}
+
+.game__container {
+    display: none;
+    width: 100%;
+    max-width: 900px;
+    justify-content: center;
+    gap: 4rem;
+    padding-top: 4rem;
+    align-items: center;
+
+    .game__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: v.$White;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+    }
+}
+
+
+.you__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+
+    .your__pick {
+        padding: 1.5rem;
+        border-radius: 50%;
+    }
+
+    #your__paper {
+        display: none;
+        background: linear-gradient(v.$Paper_Gradient);
+        box-shadow: inset 0em -.5em v.$Paper_Shadow;
+    }
+
+    #your__scissor {
+        display: none;
+        background: linear-gradient(to bottom, v.$Scissors_Gradient);
+        box-shadow: inset 0em -.5em v.$Scissors_Shadow;
+    }
+
+    #your__rock {
+        display: none;
+        background: linear-gradient(to bottom, v.$Rock_Gradient);
+        box-shadow: inset 0em -.5em v.$Rock_Shadow;
+    }
+
+}
+
+.result__container {
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+
+    h3 {
+        font-size: 3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: v.$White;
+    }
+
+    #btn__reset {
+        width: 100%;
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        border: 1px solid v.$White;
+        font-weight: 700;
+        border-radius: .5rem;
+        letter-spacing: .1rem;
+
+        &:hover {
+            cursor: pointer;
+            color: v.$Rock_Shadow;
+        }
+    }
+}
+
+.bot__container {
+    @extend .you__container;
+
+    .bot__pick {
+        @extend .your__pick;
+    }
+
+    .bot__shadow {
+        padding: 7rem;
+        background-color: darken(v.$Background__Color, 10%);
+        border-radius: 50%;
+    }
+
+    #bot__paper {
+        @extend #your__paper;
+    }
+
+    #bot__scissor {
+        @extend #your__scissor;
+    }
+
+    #bot__rock {
+        @extend #your__rock;
+    }
+
 }
 
 #btn__rules {
     align-self: flex-end;
-    padding: .5rem 2rem;
+    padding: .75rem 2.25rem;
     text-transform: uppercase;
+    background-color: transparent;
+    border: 1px solid v.$White;
+    border-radius: .5rem;
+    color: v.$White;
+    letter-spacing: .1rem;
+
+    &:hover {
+        cursor: pointer;
+        background-color: v.$White;
+        color: v.$Dark_Text;
+    }
 }
