@@ -87,6 +87,10 @@ body {
         background-color: black;
         border-radius: 50%;
         padding: 1.5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     #option__paper {
@@ -229,5 +233,45 @@ body {
         cursor: pointer;
         background-color: v.$White;
         color: v.$Dark_Text;
+    }
+}
+
+.rules {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: v.$Rules_Background;
+
+    .rules__container {
+        display: flex;
+        flex-direction: column;
+        background-color: v.$White;
+        padding: 2rem;
+        gap: 2rem;
+        border-radius: .5rem;
+    }
+
+    .rules__text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: v.$Dark_Text;
+        }
+
+        img {
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 }

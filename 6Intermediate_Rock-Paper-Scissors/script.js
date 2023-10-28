@@ -19,6 +19,10 @@ const resultContainer = document.querySelector('.result__container');
 const resultText = document.getElementById('result__text');
 const btnReset = document.getElementById('btn__reset');
 
+const btnRules = document.getElementById('btn__rules');
+const rulesContainer = document.querySelector('.rules');
+const btnExitRules = document.getElementById('btn__close-rules');
+
 let userPick = '';
 let botPick = '';
 let scoreValue = 0;
@@ -120,5 +124,13 @@ btnReset.addEventListener('click', () => {
     yourRock.style.display = 'none';
     yourScissor.style.display = 'none';
     botShadow.style.display = 'block';
+});
+
+btnExitRules.addEventListener('click', () => {
+    rulesContainer.style.display = 'none';
+});
+
+btnRules.addEventListener('click', () => {
+    rulesContainer.style.display = 'flex';
 });
 
