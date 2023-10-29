@@ -65,27 +65,33 @@ const comparePicks = () => {
             resultText.innerText = " It's a draw";
         } else if (botPick === 'scissor') {
             resultText.innerText = 'You Lose';
+            botScissor.style.filter = 'drop-shadow(0 0 5rem grey)';
             updateScore(-1);
         } else {
             resultText.innerText = 'You Win';
+            yourPaper.style.filter = 'drop-shadow(0 0 5rem grey)';
             updateScore(1);
         }
     } else if (userPick === 'scissor') {
         if (botPick === 'paper') {
             resultText.innerText = 'You Win';
+            yourScissor.style.filter = 'drop-shadow(0 0 5rem grey)';
             updateScore(1);
         } else if (botPick === 'scissor') {
             resultText.innerText = " It's a draw";
         } else {
             resultText.innerText = 'You Lose';
+            botRock.style.filter = 'drop-shadow(0 0 5rem grey)';
             updateScore(-1);
         }
     } else if (userPick === 'rock') {
         if (botPick === 'paper') {
             resultText.innerText = 'You Lose';
+            botPaper.style.filter = 'drop-shadow(0 0 5rem grey)';
             updateScore(-1);
         } else if (botPick === 'scissor') {
             resultText.innerText = 'You Win';
+            yourRock.style.filter = 'drop-shadow(0 0 5rem grey)';
             updateScore(1);
         } else {
             resultText.innerText = "It's a draw";
@@ -124,6 +130,13 @@ btnReset.addEventListener('click', () => {
     yourRock.style.display = 'none';
     yourScissor.style.display = 'none';
     botShadow.style.display = 'block';
+
+    yourRock.style.filter = 'none';
+    yourPaper.style.filter = 'none';
+    yourScissor.style.filter = 'none';
+    botPaper.style.filter = 'none';
+    botScissor.style.filter = 'none';
+    botRock.style.filter = 'none';
 });
 
 btnExitRules.addEventListener('click', () => {
