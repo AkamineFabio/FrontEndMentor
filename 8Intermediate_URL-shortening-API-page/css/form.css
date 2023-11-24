@@ -1,0 +1,52 @@
+.form {
+    width: 80%;
+    margin: 0 auto;
+    background-image: url('../images/bg-shorten-desktop.svg');
+    background-color: var(--dark-violet);
+    padding: 3rem;
+    border-radius: .5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.form__input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form__input,
+.form__btn {
+    padding: 1rem 1.75rem;
+    font-size: 1.25rem;
+    border-radius: .5rem;
+}
+
+.form__input {
+    border: 1px solid var(--dark-violet);
+}
+
+.form__msg-error {
+    position: absolute;
+    top: 110%;
+    color: var(--red);
+    padding-bottom: .5rem;
+    display: none;
+}
+
+
+.form__btn {
+    border: 1px solid var(--cyan);
+    background-color: var(--cyan);
+    color: var(--white);
+    font-weight: 700;
+    text-wrap: nowrap;
+}
+
+@media (max-width:900px) {
+    .form {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+}

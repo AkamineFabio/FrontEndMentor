@@ -1,0 +1,47 @@
+.invite {
+    margin-top: 20rem;
+    background-image: url('../images/bg-boost-desktop.svg');
+    background-size: cover;
+    background-color: var(--dark-violet);
+    padding: 4rem 0;
+    width: 100%;
+}
+
+.invite__container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.invite__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    padding-bottom: 1.5em;
+}
+
+.invite__btn {
+    padding: 1em 2em;
+    border-radius: 1.5em;
+    font-size: 1.25rem;
+    border: 1px solid var(--cyan);
+    background-color: var(--cyan);
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+}
+
+.invite__btn:hover {
+    border-color: var(--cyan-lighter);
+    background-color: var(--cyan-lighter);
+}
+
+@media(max-width:900px) {
+    .invite {
+        margin-top: 3rem;
+    }
+
+    .invite__title {
+        font-size: 2rem;
+    }
+}
